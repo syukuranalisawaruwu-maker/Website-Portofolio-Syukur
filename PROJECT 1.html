@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project | Website Portofolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #6EE7F9;
+            --secondary: #A78BFA;
+            --accent: #FDE68A;
+            --dark: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            min-height: 100vh;
+            color: var(--dark);
+            transition: .4s;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h3 {
+            font-weight: 700;
+        }
+
+        header a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        /* ===== MODE TOGGLE ===== */
+        .mode-toggle {
+            width: 70px;
+            height: 38px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #c7d2fe, #fde68a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid rgba(0, 0, 0, 0.15);
+        }
+
+        .mode-toggle i {
+            font-size: 18px;
+        }
+
+        /* ===== CONTENT ===== */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 80px 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            animation: fadeUp 1s ease;
+        }
+
+        .card h1 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 25px;
+        }
+
+        .project-image {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            border-radius: 25px;
+            margin: 30px 0;
+        }
+
+        /* ===== SECTION ===== */
+        .section {
+            margin-top: 40px;
+        }
+
+        .section h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            padding-left: 14px;
+            border-left: 6px solid var(--secondary);
+        }
+
+        .section p {
+            text-align: justify;
+            line-height: 1.9;
+            font-size: 16.5px;
+            margin-bottom: 18px;
+        }
+
+        .list {
+            margin-top: 15px;
+            padding-left: 22px;
+        }
+
+        .list li {
+            margin: 12px 0;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 45px;
+            padding: 14px 34px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* ===== ANIMATION ===== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ===== DARK MODE ===== */
+        body.dark-mode {
+            background: linear-gradient(135deg, #020617, #1e293b);
+            color: #F9FAFB;
+        }
+
+        body.dark-mode header {
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        body.dark-mode header a,
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode p,
+        body.dark-mode li {
+            color: #F9FAFB;
+        }
+
+        body.dark-mode .card {
+            background: rgba(30, 41, 59, 0.95);
+        }
+
+        body.dark-mode .mode-toggle {
+            background: linear-gradient(135deg, #1e293b, #020617);
+        }
+
+        body.dark-mode .mode-toggle i {
+            color: #F9FAFB;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h3>My Project</h3>
+        <a href="index.html">← Kembali Ke Home</a>
+
+        <div class="mode-toggle" onclick="toggleMode()">
+            <i class="fas fa-moon"></i>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+
+            <h1>Project Website Portofolio</h1>
+
+            <img src="portfolio-project.jpg" alt="Project Website Portofolio" class="project-image">
+
+            <div class="section">
+                <h2>1. Gambaran Umum Project</h2>
+                <p>
+                    Website portofolio ini saya buat sebagai media untuk menampilkan
+                    identitas diri, keterampilan, serta hasil project yang pernah saya kerjakan.
+                    Website dirancang dengan tampilan modern, rapi, dan responsif
+                    agar mudah digunakan di berbagai perangkat.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>2. Tujuan Pembuatan</h2>
+                <p>
+                    Tujuan pembuatan website portofolio ini adalah sebagai sarana
+                    personal branding, dokumentasi hasil belajar, serta media
+                    untuk menunjukkan kemampuan saya dalam pengembangan website.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>3. Proses dan Pekerjaan yang Dilakukan</h2>
+                <ul class="list">
+                    <li><strong>Perencanaan Struktur:</strong> Menentukan halaman utama, skill, project, dan navigasi.
+                    </li>
+                    <li><strong>Desain Tampilan:</strong> Menggunakan konsep modern, gradient warna, dan layout rapi.
+                    </li>
+                    <li><strong>HTML & CSS:</strong> Membuat struktur halaman dan desain visual.</li>
+                    <li><strong>Responsive Design:</strong> Menggunakan Flexbox dan media queries.</li>
+                    <li><strong>Dark & Light Mode:</strong> Mode otomatis tersimpan di semua halaman.</li>
+                    <li><strong>Navigasi Interaktif:</strong> Scroll langsung ke bagian tertentu.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. Hasil dan Manfaat</h2>
+                <p>
+                    Dari project ini saya memperoleh pengalaman membangun website dari nol,
+                    meningkatkan kemampuan desain dan struktur web, serta menghasilkan
+                    portofolio yang dapat dikembangkan lebih lanjut.
+                </p>
+            </div>
+
+            <a href="index.html#project" class="back">Kembali ke Halaman Project</a>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+            } else {
+                localStorage.setItem("theme", "light");
+            }
+
+            updateIcon();
+        }
+
+        function updateIcon() {
+            const icon = document.querySelector(".mode-toggle i");
+            if (document.body.classList.contains("dark-mode")) {
+                icon.className = "fas fa-sun";
+            } else {
+                icon.className = "fas fa-moon";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            if (localStorage.getItem("theme") === "dark") {
+                document.body.classList.add("dark-mode");
+            }
+            updateIcon();
+        });
+    </script>
+
+</body>
+
+</html>

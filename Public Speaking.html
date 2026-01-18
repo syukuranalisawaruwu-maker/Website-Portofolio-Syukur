@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill | Public Speaking</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #6EE7F9;
+            --secondary: #A78BFA;
+            --accent: #FDE68A;
+            --dark: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            min-height: 100vh;
+            color: var(--dark);
+            transition: .4s;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        /* ===== TOGGLE MODE ===== */
+        .mode-toggle {
+            width: 70px;
+            height: 38px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #c7d2fe, #fde68a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid rgba(0, 0, 0, 0.15);
+            transition: 0.4s;
+        }
+
+        .mode-toggle i {
+            font-size: 18px;
+            color: #111827;
+        }
+
+        /* ===== CONTENT ===== */
+        .container {
+            padding: 90px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 30px;
+            padding: 50px 45px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            animation: fadeUp 1s ease;
+        }
+
+        /* ===== JUDUL ===== */
+        .card h1 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== DESKRIPSI ===== */
+        .card p.desc {
+            text-align: justify;
+            font-size: 16.5px;
+            line-height: 1.9;
+            opacity: 0.9;
+            max-width: 780px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* ===== GAMBAR (TENGAH) ===== */
+        .skill-image {
+            display: block;
+            width: 100%;
+            max-width: 780px;
+            max-height: 360px;
+            object-fit: cover;
+            border-radius: 22px;
+            margin: 10px auto 35px auto;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        /* ===== LIST ===== */
+        .list {
+            max-width: 780px;
+            margin: 0 auto;
+            padding-left: 18px;
+            font-size: 16px;
+            line-height: 1.85;
+        }
+
+        .list li {
+            margin: 12px 0;
+        }
+
+        .content-wrap {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 36px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ===== DARK MODE ===== */
+        body.dark-mode {
+            background: linear-gradient(135deg, #020617, #1e293b);
+            color: #F9FAFB;
+        }
+
+        body.dark-mode header {
+            background: rgba(15, 23, 42, 0.85);
+        }
+
+        body.dark-mode header a,
+        body.dark-mode h1,
+        body.dark-mode p,
+        body.dark-mode li {
+            color: #F9FAFB;
+        }
+
+        body.dark-mode .card {
+            background: rgba(30, 41, 59, 0.9);
+        }
+
+        body.dark-mode .mode-toggle {
+            background: linear-gradient(135deg, #1e293b, #020617);
+            border-color: #64748b;
+        }
+
+        body.dark-mode .mode-toggle i {
+            color: #F9FAFB;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h3>My Skills</h3>
+        <a href="index.html#skills">← Kembali ke Skills</a>
+
+        <div class="mode-toggle" onclick="toggleMode()" title="Dark / Light Mode">
+            <i class="fas fa-moon"></i>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h1>Public Speaking</h1>
+
+            <div class="content-wrap">
+
+                <p class="desc">
+                    Public Speaking adalah kemampuan menyampaikan ide, informasi, dan pesan
+                    secara jelas, percaya diri, dan efektif di depan audiens.
+                    Saya memiliki kemampuan berbicara di depan umum yang baik,
+                    baik dalam konteks presentasi, diskusi, maupun komunikasi formal.
+                </p>
+
+                <img src="public-speaking.jpg" alt="Public Speaking" class="skill-image">
+
+                <ul class="list">
+                    <li><strong>Kepercayaan Diri:</strong> Mampu berbicara di depan kelas atau audiens dengan sikap
+                        tenang dan percaya diri.</li>
+                    <li><strong>Artikulasi & Intonasi:</strong> Penyampaian kata jelas, intonasi teratur, dan mudah
+                        dipahami.</li>
+                    <li><strong>Presentasi:</strong> Menyampaikan materi dengan struktur yang rapi dan sistematis.</li>
+                    <li><strong>Komunikasi Verbal:</strong> Menggunakan bahasa yang sopan, efektif, dan sesuai konteks.
+                    </li>
+                    <li><strong>Bahasa Tubuh:</strong> Gestur dan ekspresi mendukung pesan yang disampaikan.</li>
+                    <li><strong>Diskusi & Tanya Jawab:</strong> Mampu merespons pertanyaan dengan baik dan relevan.</li>
+                    <li><strong>Pengalaman:</strong> Presentasi tugas sekolah, diskusi kelompok, dan kegiatan kelas.
+                    </li>
+                </ul>
+
+                <p class="desc">
+                    Kemampuan public speaking ini sangat mendukung saya dalam dunia pendidikan,
+                    kerja tim, dan komunikasi profesional di bidang teknologi.
+                </p>
+
+                <a href="index.html#skills" class="back">Kembali Ke Halaman Skills</a>
+
+            </div>
+        </div>
+
+        <script>
+            function toggleMode() {
+                document.body.classList.toggle("dark-mode");
+
+                if (document.body.classList.contains("dark-mode")) {
+                    localStorage.setItem("theme", "dark");
+                } else {
+                    localStorage.setItem("theme", "light");
+                }
+
+                updateIcon();
+            }
+
+            function updateIcon() {
+                const icon = document.querySelector(".mode-toggle i");
+                if (!icon) return;
+
+                if (document.body.classList.contains("dark-mode")) {
+                    icon.classList.replace("fa-moon", "fa-sun");
+                } else {
+                    icon.classList.replace("fa-sun", "fa-moon");
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                if (localStorage.getItem("theme") === "dark") {
+                    document.body.classList.add("dark-mode");
+                }
+                updateIcon();
+            });
+        </script>
+
+</body>
+
+</html>

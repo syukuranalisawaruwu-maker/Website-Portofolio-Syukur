@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill | HTML & CSS</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #6EE7F9;
+      --secondary: #A78BFA;
+      --accent: #FDE68A;
+      --dark: #111827;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      min-height: 100vh;
+      color: var(--dark);
+      transition: .4s;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(10px);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    /* ===== TOGGLE MODE (OVAL) ===== */
+    .mode-toggle {
+      width: 70px;
+      height: 38px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #c7d2fe, #fde68a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 2px solid rgba(0, 0, 0, 0.15);
+      transition: 0.4s;
+    }
+
+    .mode-toggle i {
+      font-size: 18px;
+      color: #111827;
+    }
+
+    .container {
+      padding: 90px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 30px;
+      padding: 50px 45px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      animation: fadeUp 1s ease;
+    }
+
+    /* ===== JUDUL ===== */
+    .card h1 {
+      text-align: center;
+      font-size: 42px;
+      margin-bottom: 35px;
+      letter-spacing: 1.5px;
+    }
+
+    /* ===== TEKS DESKRIPSI ===== */
+    .card p.desc {
+      text-align: justify;
+      font-size: 16.5px;
+      line-height: 1.9;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 32px auto;
+      hyphens: auto;
+    }
+
+
+
+    /* ===== LIST SKILL ===== */
+    .list {
+      margin: 0 auto;
+      padding-left: 18px;
+      max-width: 820px;
+      line-height: 1.85;
+      font-size: 16px;
+    }
+
+    .list li {
+      margin: 12px 0;
+      padding-left: 6px;
+    }
+
+    .skill-image {
+      display: block;
+      width: 100%;
+      max-width: 700px;
+      /* sama dengan lebar teks */
+      max-height: 360px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin: 30px auto;
+      /* AUTO = TENGAH */
+    }
+
+
+
+    .back {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 30px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ===== DARK MODE ===== */
+    body.dark-mode {
+      background: linear-gradient(135deg, #020617, #1e293b);
+      color: #F9FAFB;
+    }
+
+    body.dark-mode header {
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    body.dark-mode header a,
+    body.dark-mode h1,
+    body.dark-mode p,
+    body.dark-mode li {
+      color: #F9FAFB;
+    }
+
+    body.dark-mode .card {
+      background: rgba(30, 41, 59, 0.9);
+    }
+
+    /* toggle dark */
+    body.dark-mode .mode-toggle {
+      background: linear-gradient(135deg, #1e293b, #020617);
+      border-color: #64748b;
+    }
+
+    body.dark-mode .mode-toggle i {
+      color: #F9FAFB;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h3>My Skills</h3>
+    <a href="index.html">← Kembali ke Home</a>
+
+    <div class="mode-toggle" onclick="toggleMode()" title="Dark / Light Mode">
+      <i class="fas fa-moon"></i>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h1>HTML & CSS</h1>
+
+      <p class="desc">
+        HTML (HyperText Markup Language) dan CSS (Cascading Style Sheets) adalah fondasi utama untuk membuat website
+        modern.
+        Saya memahami kedua teknologi ini secara menyeluruh sehingga dapat membangun website yang <strong>rapi, menarik,
+          dan responsif</strong>.
+        Pengetahuan saya mencakup struktur halaman, elemen semantik, layout, desain visual, animasi, dan teknik
+        responsive untuk berbagai perangkat.
+      </p>
+
+      <img src="WhatsApp Image 2026-01-14 at 18.07.05.jpeg" alt="HTML CSS Project" class="skill-image">
+
+      <ul class="list">
+        <li><strong>HTML Dasar & Lanjutan:</strong> Mampu membuat struktur halaman dengan heading, paragraf, daftar,
+          tabel, form input, link, gambar, audio, video, serta elemen HTML5 modern.</li>
+        <li><strong>CSS Styling:</strong> Mengatur tampilan website dengan warna, font, background, border, shadow, dan
+          efek visual.</li>
+        <li><strong>Layout & Responsiveness:</strong> Menggunakan Flexbox dan CSS Grid serta media queries.</li>
+        <li><strong>Animasi & Interaksi:</strong> Membuat animasi, transisi, hover effects.</li>
+        <li><strong>Struktur & Praktik Rapi:</strong> Pengelolaan file yang baik dan scalable.</li>
+        <li><strong>Proyek Nyata:</strong> Website portofolio, landing page, dan website sekolah.</li>
+        <li><strong>Design Modern:</strong> Glassmorphism, gradient, rounded corner.</li>
+        <li><strong>Integrasi JavaScript:</strong> Siap untuk interaktivitas lanjutan.</li>
+      </ul>
+
+      <p class="desc">
+        Dengan kemampuan ini, saya mampu membuat website dari awal hingga siap diintegrasikan dengan teknologi lain.
+      </p>
+
+      <a href="index.html#skills" class="back">Kembali Ke Halaman Skills</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      const icon = document.querySelector(".mode-toggle i");
+      if (document.body.classList.contains("dark-mode")) {
+        icon.classList.replace("fa-moon", "fa-sun");
+      } else {
+        icon.classList.replace("fa-sun", "fa-moon");
+      }
+    }
+  </script>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+
+      updateIcon();
+    }
+
+    function updateIcon() {
+      const icon = document.querySelector(".fa-moon, .fa-sun");
+      if (!icon) return;
+
+      if (document.body.classList.contains("dark-mode")) {
+        icon.classList.replace("fa-moon", "fa-sun");
+      } else {
+        icon.classList.replace("fa-sun", "fa-moon");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+      updateIcon();
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sertifikat Akademik | Portofolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6EE7F9;
+      --secondary: #A78BFA;
+      --accent: #FDE68A;
+      --dark: #111827;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    header a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .title h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .title p {
+      font-size: 18px;
+      opacity: 0.85;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .cert-card {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 25px;
+      padding: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      transition: 0.4s;
+      animation: fadeUp 1s ease;
+
+    }
+
+    .cert-card:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    .cert-card iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 18px;
+      margin-bottom: 15px;
+    }
+
+    .cert-card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .cert-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 50px;
+      padding: 14px 35px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #000;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .download-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== DARK MODE ===== */
+    body.dark-mode {
+      background: linear-gradient(135deg, #020617, #1e293b);
+      color: #F9FAFB;
+    }
+
+    body.dark-mode header {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    body.dark-mode header h1,
+    body.dark-mode header a,
+    body.dark-mode h2,
+    body.dark-mode h3,
+    body.dark-mode p,
+    body.dark-mode li {
+      color: #F9FAFB;
+    }
+
+    /* ===== DARK MODE FIX CERTIFICATE ===== */
+    body.dark-mode .cert-card {
+      background: rgba(30, 41, 59, 0.95);
+    }
+
+    body.dark-mode .cert-card h3,
+    body.dark-mode .cert-card p {
+      color: #F9FAFB;
+    }
+
+    body.dark-mode .download-btn {
+      color: #020617;
+    }
+
+
+    /* toggle dark */
+    body.dark-mode .mode-toggle {
+      background: linear-gradient(135deg, #1e293b, #020617);
+      border-color: #64748b;
+    }
+
+    body.dark-mode .mode-toggle i {
+      color: #F9FAFB;
+    }
+
+    /* ===== TOGGLE MODE OVAL ===== */
+    .mode-toggle {
+      width: 70px;
+      height: 38px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #c7d2fe, #fde68a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 2px solid rgba(0, 0, 0, 0.15);
+      transition: 0.4s;
+    }
+
+    .mode-toggle i {
+      font-size: 18px;
+      color: #111827;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>My Certificate</h1>
+    <a href="index.html">← Kembali ke Home</a>
+    <div class="mode-toggle" onclick="toggleMode()" title="Dark / Light Mode">
+      <i class="fas fa-moon"></i>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="title">
+      <h2>Sertifikat Akademik</h2>
+      <p>Kumpulan sertifikat yang berkaitan dengan pendidikan dan pembelajaran</p>
+    </div>
+
+    <div class="cert-grid">
+
+      <!-- Sertifikat 1 -->
+      <div class="cert-card">
+        <a href="Hardware Fundamental.pdf" target="_blank">
+          <iframe src="Hardware Fundamental.pdf"></iframe>
+        </a>
+
+        <h3>Sertifikat Hardware Fundamental</h3>
+        <p>
+          Sertifikat ini menunjukkan pemahaman dasar tentang perangkat keras komputer, mulai dari fungsi setiap
+          komponen, proses perakitan, hingga perawatan dan troubleshooting hardware komputer.
+        </p>
+
+        <a href="Hardware Fundamental.pdf" download class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <!-- Sertifikat 2 -->
+      <div class="cert-card">
+        <a href="ACP Graphic Design Fundamental.pdf" target="_blank">
+          <iframe src="ACP Graphic Design Fundamental.pdf"></iframe>
+        </a>
+
+        <h3>ACP Graphic Design Fundamental</h3>
+        <p>
+          Sertifikat ini membuktikan kemampuan dasar dalam desain grafis, meliputi prinsip desain visual, penggunaan
+          warna, tipografi, serta pengoperasian tools desain digital secara profesional.
+        </p>
+
+        <a href="ACP Graphic Design Fundamental.pdf" download class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <!-- Sertifikat 3 -->
+      <div class="cert-card">
+        <a href="Digital Marketing I.pdf" target="_blank">
+          <iframe src="Digital Marketing I.pdf"></iframe>
+        </a>
+
+        <h3>Digital Marketing I</h3>
+        <p>
+          Sertifikat ini menunjukkan pemahaman dasar strategi pemasaran digital,
+          termasuk pengenalan digital branding, media sosial,
+          serta konsep pemasaran online untuk meningkatkan jangkauan bisnis.
+        </p>
+
+        <a href="Digital Marketing I.pdf" download class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <!-- Sertifikat 4 -->
+      <div class="cert-card">
+        <a href="Digital Marketing II & III.pdf" target="_blank">
+          <iframe src="Digital Marketing II & III.pdf"></iframe>
+        </a>
+
+        <h3>Digital Marketing II & III</h3>
+        <p>
+          Sertifikat lanjutan yang membuktikan kemampuan dalam penerapan strategi
+          digital marketing secara lebih mendalam, seperti pembuatan konten,
+          analisis audiens, optimasi kampanye, dan evaluasi performa pemasaran digital.
+        </p>
+
+        <a href="Digital Marketing II & III.pdf" download class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <!-- Sertifikat 4 -->
+      <div class="cert-card">
+        <a href="Makeblock Logic Fundamental.pdf" target="_blank">
+          <iframe src="Makeblock Logic Fundamental.pdf"></iframe>
+        </a>
+
+        <h3>Makeblock Logic Fundamental</h3>
+        <p>
+          Sertifikat ini membuktikan pemahaman dasar logika pemrograman
+          dan pemanfaatan Makeblock dalam pembelajaran teknologi,
+          termasuk konsep algoritma, logika berpikir, dan pemrograman visual.
+        </p>
+
+        <a href="Makeblock Logic Fundamental.pdf" download class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+    </div>
+
+    <a href="index.html#certificates" class="back">Kembali Ke Halaman Certificates</a>
+  </div>
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+
+      updateIcon();
+    }
+
+    function updateIcon() {
+      const icon = document.querySelector(".fa-moon, .fa-sun");
+      if (!icon) return;
+
+      if (document.body.classList.contains("dark-mode")) {
+        icon.classList.replace("fa-moon", "fa-sun");
+      } else {
+        icon.classList.replace("fa-sun", "fa-moon");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+      updateIcon();
+    });
+  </script>
+
+</body>
+
+</html>

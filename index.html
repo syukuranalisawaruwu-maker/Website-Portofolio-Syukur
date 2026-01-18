@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio | Syukur Analisa Waruwu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6EE7F9;
+      --secondary: #A78BFA;
+      --accent: #FDE68A;
+      --bg: #F9FAFB;
+      --dark: #111827;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--dark);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 120px 80px;
+      animation: fadeUp 1s ease;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .hero span {
+      color: var(--secondary);
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+
+    .hero img {
+      width: 100%;
+      max-width: 380px;
+      border-radius: 30px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    h3 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card-grid a {
+      color: var(--dark);
+      text-decoration: none;
+      cursor: default;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 25px;
+      border-radius: 25px;
+      text-align: center;
+      transition: 0.4s;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      /* SEMUA SAMA */
+      object-fit: cover;
+      /* POTONG RAPI */
+      border-radius: 20px;
+      transition: 0.4s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.08);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      margin: 15px;
+      font-size: 36px;
+      color: var(--dark);
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 50%;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transition: 0.4s ease;
+    }
+
+    .contact a:hover {
+      transform: translateY(-10px) scale(1.1);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-20px)
+      }
+    }
+
+    .about {
+      background: rgba(255, 255, 255, 0.9);
+      margin: 60px auto;
+      max-width: 1200px;
+      border-radius: 30px;
+      padding: 60px 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .about-container h2 {
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+
+    .about-desc {
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      opacity: 0.9;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .about-item {
+      background: #f9fbfb;
+      padding: 20px 30px;
+      border-radius: 18px;
+    }
+
+    .about-item span {
+      font-size: 13px;
+      font-weight: 600;
+      color: #6b7280;
+    }
+
+    .about-item p {
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    .section-box {
+      background: rgba(255, 255, 255, 0.9);
+      margin: 60px auto;
+      max-width: 1200px;
+      border-radius: 30px;
+      padding: 60px 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .section-desc {
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      opacity: 0.9;
+    }
+
+    .locked-section {
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .hidden-section {
+      display: none !important;
+    }
+
+    /* ===== DARK MODE ===== */
+    body.dark-mode {
+      background: linear-gradient(135deg, #020617, #1e293b);
+      color: #F9FAFB;
+    }
+
+    body.dark-mode header {
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    body.dark-mode nav a,
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3,
+    body.dark-mode p,
+    body.dark-mode span,
+    body.dark-mode a {
+      color: #F9FAFB !important;
+    }
+
+    body.dark-mode .about,
+    body.dark-mode .section-box,
+    body.dark-mode .card,
+    body.dark-mode footer {
+      background: rgba(30, 41, 59, 0.9);
+    }
+
+    body.dark-mode .about-item {
+      background: #020617;
+    }
+
+    body.dark-mode .about-item span {
+      color: #CBD5E1 !important;
+    }
+
+    body.dark-mode .contact a {
+      background: rgba(30, 41, 59, 0.9);
+      color: #F9FAFB;
+    }
+
+    body.dark-mode .btn i {
+      color: #F9FAFB;
+    }
+
+    /* TABLET */
+    @media (max-width: 1024px) {
+      header {
+        padding: 15px 30px;
+      }
+
+      section {
+        padding: 110px 40px;
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 140px;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* HP KECIL */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 18px;
+      }
+
+      .hero h2 {
+        font-size: 26px;
+      }
+    }
+
+    /* ===== HAMBURGER MENU ===== */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: var(--dark);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      header {
+        flex-wrap: wrap;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.95);
+        margin-top: 15px;
+        border-radius: 20px;
+        padding: 15px 0;
+      }
+
+      nav a {
+        padding: 12px;
+        text-align: center;
+        font-size: 16px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      body.dark-mode nav {
+        background: rgba(30, 41, 59, 0.95);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>MyPortofolio</h1>
+
+    <!-- BUTTON HAMBURGER -->
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav id="nav-menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#project">Project</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button onclick="toggleMode()" class="btn mode-btn">
+      <i class="fas fa-moon"></i>
+    </button>
+  </header>
+
+
+  <section id="home" class="hero">
+    <div>
+      <h2>Halo, Saya <span>Syukur</span></h2>
+      <p>Pelajar TJKT yang tertarik pada teknologi, jaringan komputer, dan desain web modern.</p>
+      <p style="max-width:500px; line-height:1.7; opacity:.85;">
+        Website ini merupakan portofolio pribadi saya yang berisi informasi
+        tentang latar belakang, keterampilan, pengalaman, serta hasil karya
+        yang telah saya buat selama menempuh pendidikan di SMK jurusan TJKT.
+      </p>
+
+      <a href="#contact" class="btn">Hubungi Saya</a>
+    </div>
+    <img src="Pasphoto.jpeg" alt="Foto">
+  </section>
+
+  <section id="about" class="about">
+    <div class="about-container">
+      <h2>About Me</h2>
+
+      <p class="about-desc">
+        Saya adalah seorang pelajar yang memiliki minat besar di bidang teknologi,
+        khususnya komputer, desain grafis, dan pemasaran digital.
+        Saya senang mempelajari hal-hal baru, terbiasa bekerja dengan perangkat teknologi,
+        serta memiliki semangat untuk terus mengembangkan keterampilan akademik dan praktis.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-item">
+          <span>Nama Lengkap</span>
+          <p>Syukur Analisa Waruwu</p>
+        </div>
+
+        <div class="about-item">
+          <span>Tempat, Tanggal Lahir</span>
+          <p>Nias, 8 Mei 2009</p>
+        </div>
+
+        <div class="about-item">
+          <span>Status</span>
+          <p>Pelajar SMK</p>
+        </div>
+
+        <div class="about-item">
+          <span>Jurusan</span>
+          <p>Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</p>
+        </div>
+
+        <div class="about-item">
+          <span>Bidang Minat</span>
+          <p>Hardware Komputer, Desain Grafis, Digital Marketing</p>
+        </div>
+
+        <div class="about-item">
+          <span>Email</span>
+          <p>syukuranalisawaruwu@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section-box">
+    <h3>Skills</h3>
+    <p class="section-desc">
+      Berikut adalah beberapa keterampilan yang saya kuasai, baik di bidang
+      teknologi informasi, jaringan komputer, maupun perbaikan perangkat.
+      Skill ini saya peroleh melalui pembelajaran di sekolah, latihan mandiri,
+      serta pengalaman praktik.
+    </p>
+
+    <div class="card-grid">
+      <a href="HTML & CSS.html" class="card">HTML & CSS</a>
+      <a href="JavaScript Dasar.html" class="card">JavaScript Dasar</a>
+      <a href="Jaringan Komputer.html" class="card">Jaringan Komputer</a>
+      <a href="Perbaikan PC & Laptop.html" class="card">Perbaikan PC & Laptop</a>
+      <a href="Public Speaking.html" class="card">Public Speaking</a>
+    </div>
+  </section>
+
+  <section id="project" class="section-box">
+    <h3>Projects</h3>
+    <p class="section-desc">
+      Bagian ini menampilkan beberapa proyek yang pernah saya kerjakan,
+      baik berupa pembuatan website, layanan service komputer, maupun
+      desain digital. Proyek-proyek ini mencerminkan kemampuan dan
+      kreativitas saya dalam bidang teknologi.
+    </p>
+
+    <div class="card-grid">
+      <a href="PROJECT 1.html" class="card">Website Portofolio</a>
+      <a href="PROJECT 2.html" class="card">Desain Grafis</a>
+    </div>
+  </section>
+
+  <section id="certificates" class="section-box">
+    <h3>Certificates</h3>
+    <p class="section-desc">
+      Sertifikat yang saya miliki merupakan bukti partisipasi dan pencapaian
+      saya dalam kegiatan akademik maupun non-akademik. Sertifikat ini
+      menunjukkan komitmen saya untuk terus belajar dan meningkatkan
+      kompetensi diri.
+    </p>
+
+    <div class="card-grid">
+      <a href="SERTIFIKAT 1.html" class="card">Sertifikat Akademik</a>
+      <a href="SERTIFIKAT 2.html" class="card">Sertifikat Non Akademik</a>
+    </div>
+  </section>
+
+  <section id="gallery" class="section-box">
+    <h3>Gallery</h3>
+    <p class="section-desc">
+      Galeri ini berisi dokumentasi kegiatan saya selama di sekolah,
+      kegiatan pembelajaran daring, serta momen-momen penting yang
+      berkaitan dengan pendidikan dan pengembangan diri.
+    </p>
+
+    <div class="gallery">
+      <img src="Foto Kelas.jpeg" alt="Foto Kelas">
+      <img src="zoom.jpeg" alt="Zoom Meeting">
+      <img src="WhatsApp Image 2026-01-14 at 18.01.47.jpeg" alt="Gallery">
+      <img src="WhatsApp Image 2026-01-14 at 16.40.59.jpeg" alt="Gallery">
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h3>Contact</h3>
+    <p style="max-width:600px; margin:0 auto 30px; line-height:1.7; opacity:.85;">
+      Jika Anda tertarik untuk bekerja sama, berdiskusi, atau ingin mengetahui
+      lebih lanjut tentang saya, silakan hubungi saya melalui media sosial
+      atau email di bawah ini.
+    </p>
+
+    <a href="https://wa.me/6282164114110" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/syukur.waruwu.52" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://facebook.com/syukur.waruwu.52" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="mailto:syukuranalisawaruwu@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+  </section>
+
+  <footer>
+    <p>© 2026 Syukur Analisa Waruwu | Portofolio</p>
+  </footer>
+
+  <script>
+    const navLinks = document.querySelectorAll("nav a");
+    const sections = document.querySelectorAll("section");
+
+    window.addEventListener("load", () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+
+      const sections = document.querySelectorAll("section");
+
+      sections.forEach(sec => {
+        if ("#" + sec.id === hash) {
+          sec.classList.remove("hidden-section");
+          sec.classList.add("locked-section");
+        } else {
+          sec.classList.add("hidden-section");
+          sec.classList.remove("locked-section");
+        }
+      });
+
+      window.scrollTo(0, 0);
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", e => {
+        const target = link.getAttribute("href");
+
+        // HOME = SEMUA BALIK NORMAL
+        if (target === "#home") {
+          sections.forEach(sec => {
+            sec.classList.remove("hidden-section", "locked-section");
+          });
+          return;
+        }
+
+        e.preventDefault();
+
+        sections.forEach(sec => {
+          if ("#" + sec.id === target) {
+            sec.classList.remove("hidden-section");
+            sec.classList.add("locked-section");
+          } else {
+            sec.classList.add("hidden-section");
+            sec.classList.remove("locked-section");
+          }
+        });
+
+        window.scrollTo(0, 0);
+      });
+    });
+  </script>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+
+      updateIcon();
+    }
+
+    function updateIcon() {
+      const icon = document.querySelector(".fa-moon, .fa-sun");
+      if (!icon) return;
+
+      if (document.body.classList.contains("dark-mode")) {
+        icon.classList.replace("fa-moon", "fa-sun");
+      } else {
+        icon.classList.replace("fa-sun", "fa-moon");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+      updateIcon();
+    });
+  </script>
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav-menu").classList.toggle("show");
+    }
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("nav-menu").classList.remove("show");
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>
