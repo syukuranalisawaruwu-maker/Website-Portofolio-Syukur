@@ -201,7 +201,7 @@
       <!-- Sertifikat 1 -->
       <div class="cert-card">
         <img src="Hardware Fundamental.png" alt="Sertifikat Hardware Fundamental" onclick="openModal(this)">
-        <h3>Hardware Fundamental</h3>
+        <h3>Sertifikat Hardware Fundamental</h3>
         <p>
           Sertifikat ini menunjukkan pemahaman dasar tentang perangkat keras komputer, mulai dari fungsi setiap
           komponen, proses perakitan, hingga perawatan dan troubleshooting hardware komputer.
@@ -266,31 +266,71 @@
         </a>
       </div>
 
+      <!-- Sertifikat 6 -->
+      <div class="cert-card">
+        <img src="UI UX Design and Development.png" alt="UI/UX Design and Development " onclick="openModal(this)">
+        <h3>UI/UX Design and Development</h3>
+        <p>
+          Sertifikat ini menunjukkan kompetensi saya dalam desain antarmuka
+          dan pengalaman pengguna (UI/UX), termasuk perancangan prototipe
+          dan pengembangan aplikasi.
+        </p>
+        <a href="UI UX Design and Development.pdf" target="_blank" class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <!-- Sertifikat 7 -->
+      <div class="cert-card">
+        <img src="Web Programming.png" alt="Web Programming" onclick="openModal(this)">
+        <h3>Web Programming</h3>
+        <p>
+          Sertifikat ini membuktikan kemampuan saya dalam pemrograman web, termasuk
+          penguasaan HTML, CSS, dan JavaScript, serta penerapan konsep dasar pengembangan
+          website interaktif dan responsif.
+        </p>
+        <a href="Web Programming.pdf" target="_blank" class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <!-- Sertifikat 8 -->
+      <div class="cert-card">
+        <img src="Python Programming.png" alt="Python Programming" onclick="openModal(this)">
+        <h3>Python Programming</h3>
+        <p>
+          Sertifikat ini membuktikan kemampuan saya dalam pemrograman Python,
+          termasuk penguasaan sintaks dasar, logika pemrograman, serta penerapan
+          konsep untuk membuat program dan solusi berbasis Python.
+        </p>
+
+        <a href="Python Programming.pdf" target="_blank" class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <a href="index.html#certificates" class="back">Kembali Ke Halaman Certificates</a>
     </div>
 
-    <a href="index.html#certificates" class="back">Kembali Ke Halaman Certificates</a>
-  </div>
+    <!-- Modal Lightbox -->
+    <div id="modal" class="modal" onclick="closeModal()">
+      <span>&times;</span>
+      <img id="modal-img" src="" alt="Sertifikat">
+    </div>
 
-  <!-- Modal Lightbox -->
-  <div id="modal" class="modal" onclick="closeModal()">
-    <span>&times;</span>
-    <img id="modal-img" src="" alt="Sertifikat">
-  </div>
+    <script>
+      function openModal(img) {
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+      }
 
-  <script>
-    function openModal(img) {
-      const modal = document.getElementById('modal');
-      const modalImg = document.getElementById('modal-img');
-      modal.style.display = 'flex';
-      modalImg.src = img.src;
-    }
-
-    function closeModal() {
-      const modal = document.getElementById('modal');
-      modal.style.display = 'none';
-    }
-  </script>
+      function closeModal() {
+        const modal = document.getElementById('modal');
+        modal.style.display = 'none';
+      }
+    </script>
 </body>
 
 </html>
-
