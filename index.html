@@ -459,6 +459,28 @@
       color: #fff;
       cursor: pointer;
     }
+
+    #motivasi-box {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 15px 20px;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--dark);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 70px;
+      /* sesuaikan dengan tinggi header */
+      left: 0;
+      z-index: 999;
+      border-radius: 0 0 15px 15px;
+    }
+
+    body.dark-mode #motivasi-box {
+      background: rgba(30, 41, 59, 0.9);
+      color: #F9FAFB;
+    }
   </style>
 </head>
 
@@ -485,6 +507,11 @@
     <button onclick="toggleMode()" class="btn mode-btn">
       <i class="fas fa-moon"></i>
     </button>
+
+    <div id="motivasi-box">
+      <p id="motivasi-text">Memuat motivasi...</p>
+    </div>
+
   </header>
 
 
@@ -750,6 +777,31 @@
     function closeGalleryModal() {
       galleryModal.style.display = "none";
     }
+    
+    // Motivasi //
+    const motivasiText = document.getElementById("motivasi-text");
+
+    // Fungsi untuk ambil motivasi dari API
+    async function ambilMotivasi() {
+      try {
+        const response = await fetch("https://type.fit/api/quotes"); // API gratis
+        const data = await response.json();
+
+        // Ambil random quote
+        const randomIndex = Math.floor(Math.random() * data.length);
+        const quote = data[randomIndex].text;
+
+        motivasiText.textContent = quote;
+      } catch (error) {
+        motivasiText.textContent = "Motivasi tidak tersedia saat ini.";
+        console.error(error);
+      }
+    }
+
+    // Ganti motivasi setiap 10 detik
+    ambilMotivasi(); // pertama kali load
+    setInterval(ambilMotivasi, 10000);
+
   </script>
 
 
