@@ -428,6 +428,37 @@
         background: rgba(30, 41, 59, 0.95);
       }
     }
+
+    /* Modal Lightbox untuk Gallery */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .modal span {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -491,7 +522,7 @@
 
         <div class="about-item">
           <span>Tempat, Tanggal Lahir</span>
-          <p>Gunungsitoli, 8 Mei 2009</p>
+          <p>Nias, 8 Mei 2009</p>
         </div>
 
         <div class="about-item">
@@ -578,6 +609,12 @@
       <img src="zoom.jpeg" alt="Zoom Meeting">
       <img src="WhatsApp Image 2026-01-14 at 18.01.47.jpeg" alt="Gallery">
       <img src="WhatsApp Image 2026-01-14 at 16.40.59.jpeg" alt="Gallery">
+    </div>
+
+    <!-- Modal Lightbox untuk Gallery -->
+    <div id="gallery-modal" class="modal" onclick="closeGalleryModal()">
+      <span onclick="closeGalleryModal()">&times;</span>
+      <img id="gallery-modal-img" src="" alt="Gallery Image">
     </div>
   </section>
 
@@ -692,10 +729,21 @@
         document.getElementById("nav-menu").classList.remove("show");
       });
     });
+    // Buka modal untuk Gallery
+    const galleryImages = document.querySelectorAll(".gallery img");
+    const galleryModal = document.getElementById("gallery-modal");
+    const galleryModalImg = document.getElementById("gallery-modal-img");
+
+    galleryImages.forEach(img => {
+      img.addEventListener("click", () => {
+        galleryModal.style.display = "flex";
+        galleryModalImg.src = img.src;
+      });
+    });
+
+    function closeGalleryModal() {
+      galleryModal.style.display = "none";
+    }
   </script>
-
-
 </body>
-
-
 </html>
