@@ -181,6 +181,69 @@
       color: #fff;
       cursor: pointer;
     }
+
+    /* ===== DARK MODE ===== */
+    body.dark-mode {
+      background: linear-gradient(135deg, #020617, #1e293b);
+      color: #F9FAFB;
+    }
+
+    body.dark-mode header {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    body.dark-mode header h1,
+    body.dark-mode header a,
+    body.dark-mode h2,
+    body.dark-mode h3,
+    body.dark-mode p,
+    body.dark-mode li {
+      color: #F9FAFB;
+    }
+
+    /* ===== DARK MODE FIX CERTIFICATE ===== */
+    body.dark-mode .cert-card {
+      background: rgba(30, 41, 59, 0.95);
+    }
+
+    body.dark-mode .cert-card h3,
+    body.dark-mode .cert-card p {
+      color: #F9FAFB;
+    }
+
+    body.dark-mode .download-btn {
+      color: #020617;
+    }
+
+
+    /* toggle dark */
+    body.dark-mode .mode-toggle {
+      background: linear-gradient(135deg, #1e293b, #020617);
+      border-color: #64748b;
+    }
+
+    body.dark-mode .mode-toggle i {
+      color: #F9FAFB;
+    }
+
+    /* ===== TOGGLE MODE OVAL ===== */
+    .mode-toggle {
+      width: 70px;
+      height: 38px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #c7d2fe, #fde68a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 2px solid rgba(0, 0, 0, 0.15);
+      transition: 0.4s;
+    }
+
+    .mode-toggle i {
+      font-size: 18px;
+      color: #111827;
+    }
   </style>
 </head>
 
@@ -188,6 +251,10 @@
   <header>
     <h1>My Certificate</h1>
     <a href="index.html">← Kembali ke Home</a>
+    <div class="mode-toggle" onclick="toggleMode()" title="Dark / Light Mode">
+      <i class="fas fa-moon"></i>
+    </div>
+
   </header>
 
   <div class="container">
@@ -330,6 +397,470 @@
         const modal = document.getElementById('modal');
         modal.style.display = 'none';
       }
+      function toggleMode() {
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
+        } else {
+          localStorage.setItem("theme", "light");
+        }
+
+        updateIcon();
+      }
+
+      function updateIcon() {
+        const icon = document.querySelector(".fa-moon, .fa-sun");
+        if (!icon) return;
+
+        if (document.body.classList.contains("dark-mode")) {
+          icon.classList.replace("fa-moon", "fa-sun");
+        } else {
+          icon.classList.replace("fa-sun", "fa-moon");
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.body.classList.add("dark-mode");
+        }
+        updateIcon();
+      });
+
+    </script>
+</body>
+
+</html><!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sertifikat Akademik | Portofolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6EE7F9;
+      --secondary: #A78BFA;
+      --accent: #FDE68A;
+      --dark: #111827;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    header a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .title h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .title p {
+      font-size: 18px;
+      opacity: 0.85;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .cert-card {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 25px;
+      padding: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      transition: 0.4s;
+      animation: fadeUp 1s ease;
+      text-align: center;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    .cert-card img {
+      width: 100%;
+      border-radius: 18px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .cert-card img:hover {
+      transform: scale(1.05);
+    }
+
+    .cert-card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .cert-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #000;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .download-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 50px;
+      padding: 14px 35px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* Lightbox modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .modal span {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* ===== DARK MODE ===== */
+    body.dark-mode {
+      background: linear-gradient(135deg, #020617, #1e293b);
+      color: #F9FAFB;
+    }
+
+    body.dark-mode header {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    body.dark-mode header h1,
+    body.dark-mode header a,
+    body.dark-mode h2,
+    body.dark-mode h3,
+    body.dark-mode p,
+    body.dark-mode li {
+      color: #F9FAFB;
+    }
+
+    /* ===== DARK MODE FIX CERTIFICATE ===== */
+    body.dark-mode .cert-card {
+      background: rgba(30, 41, 59, 0.95);
+    }
+
+    body.dark-mode .cert-card h3,
+    body.dark-mode .cert-card p {
+      color: #F9FAFB;
+    }
+
+    body.dark-mode .download-btn {
+      color: #020617;
+    }
+
+
+    /* toggle dark */
+    body.dark-mode .mode-toggle {
+      background: linear-gradient(135deg, #1e293b, #020617);
+      border-color: #64748b;
+    }
+
+    body.dark-mode .mode-toggle i {
+      color: #F9FAFB;
+    }
+
+    /* ===== TOGGLE MODE OVAL ===== */
+    .mode-toggle {
+      width: 70px;
+      height: 38px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #c7d2fe, #fde68a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 2px solid rgba(0, 0, 0, 0.15);
+      transition: 0.4s;
+    }
+
+    .mode-toggle i {
+      font-size: 18px;
+      color: #111827;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>My Certificate</h1>
+    <a href="index.html">← Kembali ke Home</a>
+    <div class="mode-toggle" onclick="toggleMode()" title="Dark / Light Mode">
+      <i class="fas fa-moon"></i>
+    </div>
+
+  </header>
+
+  <div class="container">
+    <div class="title">
+      <h2>Sertifikat Akademik</h2>
+      <p>Kumpulan sertifikat yang berkaitan dengan pendidikan dan pembelajaran</p>
+    </div>
+
+    <div class="cert-grid">
+
+      <!-- Sertifikat 1 -->
+      <div class="cert-card">
+        <img src="Hardware Fundamental.png" alt="Sertifikat Hardware Fundamental" onclick="openModal(this)">
+        <h3>Sertifikat Hardware Fundamental</h3>
+        <p>
+          Sertifikat ini menunjukkan pemahaman dasar tentang perangkat keras komputer, mulai dari fungsi setiap
+          komponen, proses perakitan, hingga perawatan dan troubleshooting hardware komputer.
+        </p>
+        <a href="Hardware Fundamental.pdf" target="_blank" class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <!-- Sertifikat 2 -->
+      <div class="cert-card">
+        <img src="ACP Graphic Design Fundamental.png" alt="ACP Graphic Design Fundamental" onclick="openModal(this)">
+        <h3>ACP Graphic Design Fundamental</h3>
+        <p>
+          Sertifikat ini membuktikan kemampuan dasar dalam desain grafis, meliputi prinsip desain visual, penggunaan
+          warna, tipografi, serta pengoperasian tools desain digital secara profesional.
+        </p>
+        <a href="ACP Graphic Design Fundamental.pdf" target="_blank" class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <!-- Sertifikat 3 -->
+      <div class="cert-card">
+        <img src="Digital Marketing I.png" alt="Digital Marketing I" onclick="openModal(this)">
+        <h3>Digital Marketing I</h3>
+        <p>
+          Sertifikat ini menunjukkan pemahaman dasar strategi pemasaran digital,
+          termasuk pengenalan digital branding, media sosial,
+          serta konsep pemasaran online untuk meningkatkan jangkauan bisnis.
+        </p>
+        <a href="Digital Marketing I.pdf" target="_blank" class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <!-- Sertifikat 4 -->
+      <div class="cert-card">
+        <img src="Digital Marketing II & III.png" alt="Digital Marketing II & III" onclick="openModal(this)">
+        <h3>Digital Marketing II & III</h3>
+        <p>
+          Sertifikat lanjutan yang membuktikan kemampuan dalam penerapan strategi
+          digital marketing secara lebih mendalam, seperti pembuatan konten,
+          analisis audiens, optimasi kampanye, dan evaluasi performa pemasaran digital.
+        </p>
+        <a href="Digital Marketing II & III.pdf" target="_blank" class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <!-- Sertifikat 5 -->
+      <div class="cert-card">
+        <img src="Makeblock Logic Fundamental.png" alt="Makeblock Logic Fundamental" onclick="openModal(this)">
+        <h3>Makeblock Logic Fundamental</h3>
+        <p>
+          Sertifikat ini membuktikan pemahaman dasar logika pemrograman
+          dan pemanfaatan Makeblock dalam pembelajaran teknologi,
+          termasuk konsep algoritma, logika berpikir, dan pemrograman visual.
+        </p>
+        <a href="Makeblock Logic Fundamental.pdf" target="_blank" class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <!-- Sertifikat 6 -->
+      <div class="cert-card">
+        <img src="UI UX Design and Development.png" alt="UI/UX Design and Development " onclick="openModal(this)">
+        <h3>UI/UX Design and Development</h3>
+        <p>
+          Sertifikat ini menunjukkan kompetensi saya dalam desain antarmuka
+          dan pengalaman pengguna (UI/UX), termasuk perancangan prototipe
+          dan pengembangan aplikasi.
+        </p>
+        <a href="UI UX Design and Development.pdf" target="_blank" class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <!-- Sertifikat 7 -->
+      <div class="cert-card">
+        <img src="Web Programming.png" alt="Web Programming" onclick="openModal(this)">
+        <h3>Web Programming</h3>
+        <p>
+          Sertifikat ini membuktikan kemampuan saya dalam pemrograman web, termasuk
+          penguasaan HTML, CSS, dan JavaScript, serta penerapan konsep dasar pengembangan
+          website interaktif dan responsif.
+        </p>
+        <a href="Web Programming.pdf" target="_blank" class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <!-- Sertifikat 8 -->
+      <div class="cert-card">
+        <img src="Python Programming.png" alt="Python Programming" onclick="openModal(this)">
+        <h3>Python Programming</h3>
+        <p>
+          Sertifikat ini membuktikan kemampuan saya dalam pemrograman Python,
+          termasuk penguasaan sintaks dasar, logika pemrograman, serta penerapan
+          konsep untuk membuat program dan solusi berbasis Python.
+        </p>
+
+        <a href="Python Programming.pdf" target="_blank" class="download-btn">
+          👁️ Lihat Sertifikat
+        </a>
+      </div>
+
+      <a href="index.html#certificates" class="back">Kembali Ke Halaman Certificates</a>
+    </div>
+
+    <!-- Modal Lightbox -->
+    <div id="modal" class="modal" onclick="closeModal()">
+      <span>&times;</span>
+      <img id="modal-img" src="" alt="Sertifikat">
+    </div>
+
+    <script>
+      function openModal(img) {
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+      }
+
+      function closeModal() {
+        const modal = document.getElementById('modal');
+        modal.style.display = 'none';
+      }
+      function toggleMode() {
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
+        } else {
+          localStorage.setItem("theme", "light");
+        }
+
+        updateIcon();
+      }
+
+      function updateIcon() {
+        const icon = document.querySelector(".fa-moon, .fa-sun");
+        if (!icon) return;
+
+        if (document.body.classList.contains("dark-mode")) {
+          icon.classList.replace("fa-moon", "fa-sun");
+        } else {
+          icon.classList.replace("fa-sun", "fa-moon");
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.body.classList.add("dark-mode");
+        }
+        updateIcon();
+      });
+
     </script>
 </body>
 
